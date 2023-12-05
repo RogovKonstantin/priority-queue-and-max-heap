@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PriorityQueue<E extends Comparable<E>> implements AbstractQueue<E> {
+public class ArrayListPriorityQueue<E extends Comparable<E>> implements AbstractQueue<E> {
     private List<E> list;
 
-    public PriorityQueue() {
+    public ArrayListPriorityQueue() {
         this.list = new ArrayList<>();
     }
 
@@ -84,7 +84,7 @@ public class PriorityQueue<E extends Comparable<E>> implements AbstractQueue<E> 
     public void changePriority(int index, E newPriority) {
         if (index >= 0 && index < list.size()) {
             list.set(index, newPriority);
-            // Check if the new priority requires swimming or sinking
+
             if (less(index, parent(index))) {
                 swim(index);
             } else {

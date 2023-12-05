@@ -1,49 +1,79 @@
 public class Main {
     public static void main(String[] args) {
-        testPriorityQueue();
-        testMaxHeap();
+        testBinarySearchTreePriorityQueue();
+        System.out.println("\n");
+        testLinkedListMaxHeap();
+        System.out.println("\n");
+        testArrayListPriorityQueue();
     }
 
-    public static void testPriorityQueue() {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+    public static void testBinarySearchTreePriorityQueue() {
+        BinarySearchTreePriorityQueue<Integer> binarySearchTreePriorityQueue = new BinarySearchTreePriorityQueue<>();
 
-        priorityQueue.add(10);
-        priorityQueue.add(20);
-        priorityQueue.add(15);
-        priorityQueue.add(5);
-        priorityQueue.add(25);
+        binarySearchTreePriorityQueue.add(5);
+        binarySearchTreePriorityQueue.add(9);
+        binarySearchTreePriorityQueue.add(3);
+        binarySearchTreePriorityQueue.add(1);
+        binarySearchTreePriorityQueue.add(7);
+        binarySearchTreePriorityQueue.add(-10);
+        binarySearchTreePriorityQueue.add(-1);
 
-        System.out.println(priorityQueue + " size: " + priorityQueue.size());
+        System.out.println("Размер очереди: " + binarySearchTreePriorityQueue.size());
 
-        priorityQueue.changePriority(2, 30);
+        System.out.println("Наивысший приоритет: " + binarySearchTreePriorityQueue.peek());
 
-        System.out.println(priorityQueue);
-
-        System.out.println("Peek: " + priorityQueue.peek());
-
-        while (priorityQueue.size() > 0) {
-            System.out.println("Poll: " + priorityQueue.poll());
-            System.out.println(priorityQueue + " size: " + priorityQueue.size());
+        while (binarySearchTreePriorityQueue.size() > 0) {
+            System.out.println("Удаление элемента с наивысшим приоритетом: " + binarySearchTreePriorityQueue.poll());
+            System.out.println("Размер очереди: " + binarySearchTreePriorityQueue.size());
         }
     }
 
-    private static void testMaxHeap() {
-        MaxHeap<Integer> maxHeap = new MaxHeap<>();
 
-        maxHeap.add(10);
-        maxHeap.add(5);
-        maxHeap.add(20);
-        maxHeap.add(15);
-        maxHeap.add(7);
-        System.out.println(maxHeap + " size: " + maxHeap.size());
+    private static void testLinkedListMaxHeap() {
+        LinkedListMaxHeap<Integer> linkedListMaxHeap = new LinkedListMaxHeap<>();
 
-        System.out.println("Peek: " + maxHeap.peek());
+        linkedListMaxHeap.add(5);
+        linkedListMaxHeap.add(9);
+        linkedListMaxHeap.add(3);
+        linkedListMaxHeap.add(1);
+        linkedListMaxHeap.add(7);
+        linkedListMaxHeap.add(-10);
+        linkedListMaxHeap.add(-1);
 
-        maxHeap.add(25);
+        System.out.println("Размер кучи: " + linkedListMaxHeap.size());
 
-        System.out.println(maxHeap + " size: " + maxHeap.size());
+        System.out.println("максимальный элемент : " + linkedListMaxHeap.peek());
 
-        System.out.println("Peek: " + maxHeap.peek());
+        linkedListMaxHeap.add(30);
 
+        System.out.println("Размер кучи: " + linkedListMaxHeap.size());
+
+        System.out.println("максимальный элемент : " + linkedListMaxHeap.peek());
+    }
+
+    public static void testArrayListPriorityQueue() {
+        ArrayListPriorityQueue<Integer> arrayListPriorityQueue = new ArrayListPriorityQueue<>();
+
+        arrayListPriorityQueue.add(5);
+        arrayListPriorityQueue.add(9);
+        arrayListPriorityQueue.add(3);
+        arrayListPriorityQueue.add(1);
+        arrayListPriorityQueue.add(7);
+        arrayListPriorityQueue.add(-10);
+        arrayListPriorityQueue.add(-1);
+
+        System.out.println("Размер очереди: " + arrayListPriorityQueue.size());
+
+        System.out.println("Наивысший приоритет: " + arrayListPriorityQueue.peek());
+
+        arrayListPriorityQueue.changePriority(1, 30);
+
+        System.out.println("Наивысший приоритет: " + arrayListPriorityQueue.peek());
+
+
+        while (arrayListPriorityQueue.size() > 0) {
+            System.out.println("Удаление элемента с наивысшим приоритетом: " + arrayListPriorityQueue.poll());
+            System.out.println("Размер очереди: " + arrayListPriorityQueue.size());
+        }
     }
 }
